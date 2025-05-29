@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "preview": "vite preview",
     "update": "ncu -x tailwindcss,postcss -u && rimraf node_modules package-lock.json && npm install",
     "optionalupdate": "ncu -x tailwindcss,postcss -u && (if exist node_modules rmdir /s /q node_modules) && (if exist package-lock.json del /f /q package-lock.json) && npm install",
