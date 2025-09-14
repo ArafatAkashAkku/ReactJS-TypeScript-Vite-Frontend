@@ -5,36 +5,39 @@ import Layout from './components/Layout.component';
 import HomePage from './pages/Home.page';
 import LoginPage from './pages/Login.page';
 import Dashboard from './pages/Dashboard.page';
+import { ThemeProvider } from './context/Theme.context';
 
 const App = () => {
   return (
-    <UserProvider>
-      <Router>
-        <Routes>
-          {/* Routes that should NOT show layout */}
-          <Route
-            path="/login"
-            element={
-              <ProtectedRoute inverse>
-                <LoginPage />
-              </ProtectedRoute>
-            }
-          />
-          {/* Routes that should show layout (with Header/Footer) */}
-          <Route path="/" element={<Layout />}>
-            <Route index element={<HomePage />} />
+    <ThemeProvider>
+      <UserProvider>
+        <Router>
+          <Routes>
+            {/* Routes that should NOT show layout */}
             <Route
-              path="dashboard"
+              path="/login"
               element={
-                <ProtectedRoute>
-                  <Dashboard />
+                <ProtectedRoute inverse>
+                  <LoginPage />
                 </ProtectedRoute>
               }
             />
-          </Route>
-        </Routes>
-      </Router>
-    </UserProvider>
+            {/* Routes that should show layout (with Header/Footer) */}
+            <Route path="/" element={<Layout />}>
+              <Route index element={<HomePage />} />
+              <Route
+                path="dashboard"
+                element={
+                  <ProtectedRoute>
+                    <Dashboard />
+                  </ProtectedRoute>
+                }
+              />
+            </Route>
+          </Routes>
+        </Router>
+      </UserProvider>
+    </ThemeProvider>
   );
 };
 
