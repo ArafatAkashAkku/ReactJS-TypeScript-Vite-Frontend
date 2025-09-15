@@ -10,7 +10,7 @@ export default defineConfig([
     ignores: ['**/*.json'],
     plugins: {
       js,
-      react: pluginReact
+      react: pluginReact,
     },
     languageOptions: {
       globals: globals.browser,
@@ -21,7 +21,7 @@ export default defineConfig([
         },
         ecmaVersion: 'latest',
         sourceType: 'module',
-      }
+      },
     },
     rules: {
       ...pluginReact.configs.recommended.rules,
@@ -29,9 +29,9 @@ export default defineConfig([
     },
     settings: {
       react: {
-        version: 'detect' // ✅ Automatically detect React version
-      }
-    }
+        version: 'detect', // ✅ Automatically detect React version
+      },
+    },
   },
-  tseslint.configs.recommended
+  tseslint.configs.recommended,
 ]);
